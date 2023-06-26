@@ -1,0 +1,9 @@
+,number_of_alerts,column_name,rank
+0,5,price_new,1
+1,5,fuel,2
+2,5,door_count,3
+3,5,car_age,4
+4,5,accident_count,5
+5,1,km_driven,6
+6,0,transmission,7
+7,0,timestamp,8
