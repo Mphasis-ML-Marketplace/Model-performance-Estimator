@@ -8,6 +8,11 @@ Model performance Estimator evaluates and monitors the performance of regression
 
 ### Input :
 
+The input has to be a '.zip' file. PLEASE NOTE: The folder must contain reference data; analysis data; model file; and paramenter.json
+1. Make sure that upload the same model which is related to reference data and analysis data
+2. The input can have a maximum of 512 words (Sagemaker restriction)
+3. Input should have atleast 3 sentences (Model limitation)
+4. Supported content types: application/zip
 
 
 **Usage Methodology for the algorithm:**
