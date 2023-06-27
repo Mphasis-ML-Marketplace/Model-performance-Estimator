@@ -8,22 +8,12 @@ Model performance Estimator evaluates and monitors the performance of regression
 
 ### Input :
 
-The input has to be a '.zip' file. PLEASE NOTE: The folder must contain reference data; analysis data; model file; and paramenter.json
-1. Make sure that upload the same model which is related to reference data and analysis data
-2. The input can have a maximum of 512 words (Sagemaker restriction)
-3. Input should have atleast 3 sentences (Model limitation)
-4. Supported content types: application/zip
+The input has to be a '.zip' file containing 4 files namely(reference_data.csv; analysis_data.csv; nannyml_model.sav; nannyml.json):
+1. Reference_data(.csv) data with ground truth on which the model is trained
+2. Analysis_data(.csv) file data without the ground truth for which we want to predict the metrics
+3. Nannml_model(.sav)file ML model trained on your reference data
+4. Nannyml(.josn) file specifing the type of task, name of the target variable and and timestamp column name(if any)
 
-
-**Usage Methodology for the algorithm:**
-
-
-
-The input has to be a '.txt' file with 'utf-8' encoding. PLEASE NOTE: If your input .txt file is not 'utf-8' encoded, model will not perform as expected
-1. To make sure that your input file is 'UTF-8' encoded please 'Save As' using Encoding as 'UTF-8'
-2. The input can have a maximum of 512 words (Sagemaker restriction)
-3. Input should have atleast 3 sentences (Model limitation)
-4. Supported content types: text/plain
 
 
 
@@ -31,7 +21,7 @@ The input has to be a '.txt' file with 'utf-8' encoding. PLEASE NOTE: If your in
 
 
 
-Content type: text/plain
+Content type: application/zip
 
 
 
@@ -44,7 +34,7 @@ If you are using real time inferencing, please create the endpoint first and the
 
 
 
-`aws sagemaker-runtime invoke-endpoint --endpoint-name "endpoint-name" --body fileb://input.txt --content-type text/plain --accept text/plain result.txt`
+`aws sagemaker-runtime invoke-endpoint --endpoint-name "endpoint-name" --body fileb://input.zip --content-type application/zip --accept application/zip responce.zip`
 
 
 
@@ -53,9 +43,9 @@ If you are using real time inferencing, please create the endpoint first and the
 
 
 * "endpoint-name" - name of the inference endpoint where the model is deployed
-* input.txt - input file
-* text/plain - MIME type of the given input file (above)
-* result.txt - filename where the inference results are written to.
+* input.zip - input file
+* application/zip - MIME type of the given input file (above)
+* responce.zip - filename where the inference results are written to.
 
 
 
@@ -63,6 +53,6 @@ If you are using real time inferencing, please create the endpoint first and the
 
 
 
-1. [Sample Notebook](text_summary_marketplace.ipynb) 
-2. [Sample Input](SampleInput)
-3. [Sample Output](SampleOutput) 
+1. [Sample Notebook](https://github.com/Mphasis-ML-Marketplace/Model-performance-Estimator/blob/main/Model-performance-Estimator.ipynb) 
+2. [Sample Input](https://github.com/Mphasis-ML-Marketplace/Model-performance-Estimator/blob/main/Input/input.zip)
+3. [Sample Output](https://github.com/Mphasis-ML-Marketplace/Model-performance-Estimator/blob/main/Output/response.zip) 
